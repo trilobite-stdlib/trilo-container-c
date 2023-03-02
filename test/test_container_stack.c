@@ -17,12 +17,12 @@ StackOf *mockStack;
  >  project setup teardown functions if needed
  >
 */
-void setup()
+static void setup()
 {
     mockStack = tril_container_stack_create();
 } // end of function setUp
 
-void teardown()
+static void teardown()
 {
     tril_container_stack_erase(&mockStack);
 } // end of function tearDown

@@ -17,13 +17,13 @@ SListOf *mockSList;
  >  project setup teardown functions if needed
  >
 */
-void setup()
+static void setup()
 {
     mockSList = tril_container_slist_create();
 } // end of function setUp
 
 
-void teardown()
+static void teardown()
 {
     tril_container_slist_erase(&mockSList);
 } // end of function tearDown

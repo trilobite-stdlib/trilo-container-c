@@ -18,13 +18,13 @@ DListOf *mockDList;
  >  project setup teardown functions if needed
  >
 */
-void setup()
+static void setup()
 {
     mockDList = tril_container_dlist_create();
 } // end of function setUp
 
 
-void teardown()
+static void teardown()
 {
     tril_container_dlist_erase(&mockDList);
 } // end of function tearDown
