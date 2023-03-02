@@ -10,7 +10,7 @@
 #include <trilobite/utest.h> // trilobite test framework
 #include <stdlib.h> // needed for standard nullptr
 
-DeQueueOf *mockQueue;
+DeQueueOf *mockDQueue;
 
 /*
  >
@@ -19,13 +19,13 @@ DeQueueOf *mockQueue;
 */
 static void setup()
 {
-    mockQueue = tril_container_dqueue_create();
+    mockDQueue = tril_container_dqueue_create();
 } // end of function setUp
 
 
 static void teardown()
 {
-    tril_container_dqueue_erase(&mockQueue);
+    tril_container_dqueue_erase(&mockDQueue);
 } // end of function tearDown
 
 
@@ -42,8 +42,8 @@ static void test_01_continaer_dqueue_push_data()
 
     //
     // here we run the asserts
-    tril_container_dqueue_push(mockQueue, testData);
-    tril_assert_equal_str("Some data", tril_container_dqueue_peek(mockQueue));
+    tril_container_dqueue_push(mockDQueue, testData);
+    tril_assert_equal_str("Some data", tril_container_dqueue_peek(mockDQueue));
 } // end of test case
 
 static void test_02_continaer_dqueue_push_multable_items()
@@ -56,9 +56,9 @@ static void test_02_continaer_dqueue_push_multable_items()
     // here we run the asserts
     for (int iter = 0; iter < 3; iter++)
     {
-        tril_container_dqueue_push(mockQueue, testData[iter]);
+        tril_container_dqueue_push(mockDQueue, testData[iter]);
     } // end for
-    tril_assert_equal_str("Cup of coffee", tril_container_dqueue_peek(mockQueue));
+    tril_assert_equal_str("Cup of coffee", tril_container_dqueue_peek(mockDQueue));
 } // end of test case
 
 static void test_03_continaer_dqueue_push_nullsafe()
@@ -70,7 +70,7 @@ static void test_03_continaer_dqueue_push_nullsafe()
     //
     // here we run the asserts
     tril_container_dqueue_push(NULL, testData);
-    tril_assert_equal_str(NULL, tril_container_dqueue_peek(mockQueue));
+    tril_assert_equal_str(NULL, tril_container_dqueue_peek(mockDQueue));
 } // end of test case
 
 static void test_04_continaer_dqueue_pop_data()
@@ -83,13 +83,13 @@ static void test_04_continaer_dqueue_pop_data()
     // here we run the asserts
     for (int iter = 0; iter < 3; iter++)
     {
-        tril_container_dqueue_push(mockQueue, testData[iter]);
+        tril_container_dqueue_push(mockDQueue, testData[iter]);
     } // end for
-    tril_assert_equal_str("Cup of coffee", tril_container_dqueue_peek(mockQueue));
+    tril_assert_equal_str("Cup of coffee", tril_container_dqueue_peek(mockDQueue));
 
     // then try to pop item of queue
-    tril_container_dqueue_pop(mockQueue);
-    tril_assert_equal_str("More data", tril_container_dqueue_peek(mockQueue));
+    tril_container_dqueue_pop(mockDQueue);
+    tril_assert_equal_str("More data", tril_container_dqueue_peek(mockDQueue));
 } // end of test case
 
 static void test_05_continaer_dqueue_pop_nullsafe()
@@ -101,9 +101,9 @@ static void test_05_continaer_dqueue_pop_nullsafe()
     //
     // here we run the asserts
     tril_container_dqueue_push(NULL, testData);
-    tril_assert_equal_str(NULL, tril_container_dqueue_peek(mockQueue));
+    tril_assert_equal_str(NULL, tril_container_dqueue_peek(mockDQueue));
     tril_container_dqueue_pop(NULL);
-    tril_assert_equal_str(NULL, tril_container_dqueue_peek(mockQueue));
+    tril_assert_equal_str(NULL, tril_container_dqueue_peek(mockDQueue));
 } // end of test case
 
 static void test_06_continaer_dqueue_its_empty()
@@ -114,10 +114,10 @@ static void test_06_continaer_dqueue_its_empty()
 
     //
     // here we run the asserts
-    tril_assert_its_true(tril_container_dqueue_its_empty(mockQueue));
-    tril_container_dqueue_push(mockQueue, testData);
-    tril_assert_equal_str("Some data", tril_container_dqueue_peek(mockQueue));
-    tril_assert_its_false(tril_container_dqueue_its_empty(mockQueue));
+    tril_assert_its_true(tril_container_dqueue_its_empty(mockDQueue));
+    tril_container_dqueue_push(mockDQueue, testData);
+    tril_assert_equal_str("Some data", tril_container_dqueue_peek(mockDQueue));
+    tril_assert_its_false(tril_container_dqueue_its_empty(mockDQueue));
 } // end of test case
 
 static void test_07_continaer_dqueue_its_empty_nullsafe()
@@ -128,10 +128,10 @@ static void test_07_continaer_dqueue_its_empty_nullsafe()
 
     //
     // here we run the asserts
-    tril_assert_its_true(tril_container_dqueue_its_empty(mockQueue));
+    tril_assert_its_true(tril_container_dqueue_its_empty(mockDQueue));
     tril_container_dqueue_push(NULL, testData);
-    tril_assert_equal_str(NULL, tril_container_dqueue_peek(mockQueue));
-    tril_assert_its_true(tril_container_dqueue_its_empty(mockQueue));
+    tril_assert_equal_str(NULL, tril_container_dqueue_peek(mockDQueue));
+    tril_assert_its_true(tril_container_dqueue_its_empty(mockDQueue));
 } // end of test case
 
 static void test_08_continaer_dqueue_not_empty()
@@ -142,10 +142,10 @@ static void test_08_continaer_dqueue_not_empty()
 
     //
     // here we run the asserts
-    tril_assert_its_false(tril_container_dqueue_not_empty(mockQueue));
-    tril_container_dqueue_push(mockQueue, testData);
-    tril_assert_equal_str("Some data", tril_container_dqueue_peek(mockQueue));
-    tril_assert_its_true(tril_container_dqueue_not_empty(mockQueue));
+    tril_assert_its_false(tril_container_dqueue_not_empty(mockDQueue));
+    tril_container_dqueue_push(mockDQueue, testData);
+    tril_assert_equal_str("Some data", tril_container_dqueue_peek(mockDQueue));
+    tril_assert_its_true(tril_container_dqueue_not_empty(mockDQueue));
 } // end of test case
 
 static void test_09_continaer_dqueue_not_empty_nullsafe()
@@ -156,10 +156,10 @@ static void test_09_continaer_dqueue_not_empty_nullsafe()
 
     //
     // here we run the asserts
-    tril_assert_its_false(tril_container_dqueue_not_empty(mockQueue));
+    tril_assert_its_false(tril_container_dqueue_not_empty(mockDQueue));
     tril_container_dqueue_push(NULL, testData);
-    tril_assert_equal_str(NULL, tril_container_dqueue_peek(mockQueue));
-    tril_assert_its_false(tril_container_dqueue_not_empty(mockQueue));
+    tril_assert_equal_str(NULL, tril_container_dqueue_peek(mockDQueue));
+    tril_assert_its_false(tril_container_dqueue_not_empty(mockDQueue));
 } // end of test case
 
 /*
