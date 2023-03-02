@@ -3,7 +3,7 @@ if get_option('with_tests').enabled()
 
     test_exe = executable('dummy',
         'test_cases.c',
-        dependencies : [trilo_utest_dep, trilo_dep])
+        dependencies : [trilo_utest_dep, trilo_container_dep])
 
     test('Execute project tests', test_exe)
 endif
