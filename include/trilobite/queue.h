@@ -27,8 +27,8 @@ typedef struct QueueOf QueueOf;
 QueueOf *tril_container_queue_create(void);
 void tril_container_queue_erase(QueueOf **structure_ref);
 void tril_container_queue_push(QueueOf *structure_ptr, const char *data);
-const char *tril_container_queue_pop(QueueOf *structure_ptr);
-const char *tril_container_queue_peek(QueueOf *structure_ptr);
+char *tril_container_queue_pop(QueueOf *structure_ptr);
+char *tril_container_queue_peek(QueueOf *structure_ptr);
 unsigned int tril_container_queue_its_empty(QueueOf *structure_ptr);
 unsigned int tril_container_queue_not_empty(QueueOf *structure_ptr);
 

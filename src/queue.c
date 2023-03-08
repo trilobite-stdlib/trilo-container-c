@@ -144,7 +144,7 @@ void tril_container_queue_push(QueueOf *structure_ptr, const char *data)
   args:
   -> structure_ptr: Pointer object of type queue of
 */
-const char *tril_container_queue_pop(QueueOf *structure_ptr)
+char *tril_container_queue_pop(QueueOf *structure_ptr)
 {
     if (!structure_ptr || !structure_ptr->_begin_ptr)
     {
@@ -177,7 +177,7 @@ const char *tril_container_queue_pop(QueueOf *structure_ptr)
   args:
   -> structure_ptr: Pointer object of type queue of
 */
-const char *tril_container_queue_peek(QueueOf *structure_ptr)
+char *tril_container_queue_peek(QueueOf *structure_ptr)
 {
     if (!structure_ptr || !structure_ptr->_begin_ptr)
     {

@@ -153,7 +153,7 @@ void tril_container_dlist_push(DListOf *structure_ptr, const char *data)
 */
 char *tril_container_dlist_pop(DListOf *structure_ptr)
 {
-    if (!structure_ptr->_begin_ptr)
+    if (!structure_ptr || !structure_ptr->_begin_ptr)
     {
         return NULL;
     } // end if

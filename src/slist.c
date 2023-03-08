@@ -137,7 +137,7 @@ void tril_container_slist_push(SListOf *structure_ptr, const char *data)
 */
 char *tril_container_slist_pop(SListOf *structure_ptr)
 {
-    if (!structure_ptr->_top_ptr)
+    if (!structure_ptr || !structure_ptr->_top_ptr)
     {
         return NULL;
     } // end if
