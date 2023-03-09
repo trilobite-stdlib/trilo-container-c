@@ -4,8 +4,8 @@
    gmail:   <michaelbrockus@gmail.com>
    website: <https://trilobite.code.blog>
 */
-#ifndef TRILOBITE_MOD_H
-#define TRILOBITE_MOD_H
+#ifndef TRILOBITE_CONTAINER_H
+#define TRILOBITE_CONTAINER_H
 
 #ifdef __cplusplus
 extern "C"
@@ -20,7 +20,12 @@ extern "C"
 // use in the users application. Please note that we are internationally
 // targeting both c11 and c23 standards.
 //   
-const char *salutations(void);
+#include "queue.h"
+#include "dqueue.h"
+#include "stack.h"
+#include "stack.h"
+#include "slist.h"
+#include "dlist.h"
 
 #ifdef __cplusplus
 }
